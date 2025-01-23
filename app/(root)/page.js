@@ -7,23 +7,21 @@ export default function Home() {
       <Container maxWidth="sm">
         <Stack spacing={2} display="flex" alignItems="center">
           <Stack
+            border={1}
+            borderColor="background.primaryInsetBorder"
             spacing={2}
             display="flex"
             alignItems="center"
             p={2}
             borderRadius={2}
-            sx={{ bgcolor: "primary.main" }}
+            sx={{ bgcolor: "background.primaryInset" }}
           >
-            <Typography textAlign="center" color="text.light" fontWeight={600}>
+            <Typography textAlign="center" fontWeight={600}>
               This app is not quite ready to use yet. In the meantime, please
               enjoy this stock image of a cute bear waving at you.
             </Typography>
-            <Typography color="text.light" fontWeight={600}>
-              Thank you.
-            </Typography>
-            <Typography fontWeight={600} color="primary.light">
-              - Will
-            </Typography>
+            <Typography fontWeight={600}>Thank you.</Typography>
+            <Typography fontWeight={600}>- Will</Typography>
           </Stack>
           <Box width={300} height={450} position="relative">
             <Image src="/images/cute-bear.webp" fill alt="Cute bear" />

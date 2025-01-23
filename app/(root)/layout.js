@@ -27,6 +27,7 @@ const Header = () => {
             pointerEvents: "none",
             userSelect: "none",
             marginInline: ["auto", "initial"],
+            filter: "drop-shadow(2px 4px 6px black);",
           }}
         >
           <Image src="/images/logo.png" fill alt="Logo" />
@@ -40,14 +41,13 @@ const Header = () => {
         </Typography> */}
       </Container>
 
-      <Box sx={{ bgcolor: "background.alert" }}>
+      <Box
+        bgcolor="background.alert"
+        border={1}
+        borderColor="background.alertBorder"
+      >
         <Container>
-          <Typography
-            textAlign="center"
-            fontSize="1.1"
-            py={1}
-            color="text.light"
-          >
+          <Typography textAlign="center" fontSize="1.1" py={1}>
             Welcome to{" "}
             <Typography variant="span" fontWeight={700}>
               ReadyUp
