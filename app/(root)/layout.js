@@ -6,13 +6,13 @@ import "../globals.css";
 import Wireframe from "@/components/Wireframe";
 import theme from "@/themes/main";
 import Image from "next/image";
+import Link from "next/link";
+import { Montserrat } from "next/font/google";
 
 export const metadata = {
   title: "ReadyUp",
   description: "A learning tool for students",
 };
-
-import { Montserrat } from "next/font/google";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -22,38 +22,43 @@ const montserrat = Montserrat({
 
 const Header = () => {
   return (
-    <Box component="header" pt={2} pb={5}>
-      <Container maxWidth={false} sx={{ mb: 2 }}>
+    <Box
+      component="header"
+      mt={2}
+      position="sticky"
+      top={0}
+      bgcolor="background.primary"
+    >
+      <Container maxWidth={false} sx={{ pb: 2 }}>
         <AccountAccess />
-        <Typography
-          variant="h1"
-          position="relative"
-          width={250}
-          height={78}
+        <Box
           mt={[2, 0]}
           sx={{
-            pointerEvents: "none",
-            userSelect: "none",
+            "&:hover": {
+              filter: "drop-shadow(2px 0px 6px #ed6c02) grayscale(1);",
+            },
+            filter: "drop-shadow(2px 4px 6px black) grayscale(0);",
+            width: "fit-content",
+            transition: "all 0.2s",
             marginInline: ["auto", "initial"],
-            filter: "drop-shadow(2px 4px 6px black);",
           }}
         >
-          <Image src="/images/logo.png" fill alt="Logo" />
-        </Typography>
+          <Link href="/">
+            <Typography
+              variant="h1"
+              position="relative"
+              width={150}
+              height={47}
+              sx={{
+                pointerEvents: "none",
+                userSelect: "none",
+              }}
+            >
+              <Image src="/images/logo.png" fill alt="Logo" priority />
+            </Typography>
+          </Link>
+        </Box>
       </Container>
-
-      <Alert
-        severity="warning"
-        variant="filled"
-        sx={{ justifyContent: "center" }}
-      >
-        Welcome to{" "}
-        <Typography variant="span" fontWeight={700}>
-          ReadyUp
-        </Typography>
-        . This app is currently in very early stages of development. Thank you
-        for your patience as we sort things out.
-      </Alert>
     </Box>
   );
 };
@@ -74,7 +79,23 @@ export default function RootLayout({ children }) {
             >
               <CssBaseline />
               <Header />
-              <Box component="main">{children}</Box>
+
+              <Alert
+                severity="warning"
+                variant="filled"
+                sx={{ justifyContent: "center", position: "sticky", top: 60 }}
+              >
+                Welcome to{" "}
+                <Typography variant="span" fontWeight={700}>
+                  ReadyUp
+                </Typography>
+                . This app is currently in very early stages of development.
+                Thank you for your patience as we sort things out.
+              </Alert>
+
+              <Box component="main" mt={5}>
+                {children}
+              </Box>
             </Box>
           </body>
         </ThemeProvider>

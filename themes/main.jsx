@@ -14,8 +14,12 @@ const theme = createTheme({
     },
     background: {
       primary: "#252b33",
-      primaryInset: "#1b2129",
-      primaryInsetBorder: "#606265",
+
+      primaryInsetDark: "#1b2129",
+      primaryInsetLight: "#2e3743",
+
+      primaryInsetBorderDark: "#606265",
+      primaryInsetBorderLight: "#606265",
 
       alert: "#dd2c00",
       alertBorder: "#ff5353",
