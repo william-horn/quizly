@@ -1,5 +1,5 @@
 "use client";
-import { createTheme, responsiveFontSizes } from "@mui/material";
+import { createTheme } from "@mui/material";
 
 const theme = createTheme({
   palette: {
@@ -9,7 +9,7 @@ const theme = createTheme({
       light: "#b3e5fc",
     },
     secondary: {
-      main: "#ff5722",
+      main: "#ed6c02",
       dark: "#d84315",
     },
     background: {
@@ -27,6 +27,7 @@ const theme = createTheme({
     },
   },
   typography: {
+    fontFamily: "Montserrat",
     h1: {
       fontSize: "2.5rem",
       color: "#039be5",

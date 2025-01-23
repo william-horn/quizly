@@ -17,7 +17,7 @@ const AccountAccess = ({ children }) => {
         Login
       </Button>
       <Button
-        variant="contained"
+        variant="outlined"
         onClick={onClick}
         color="secondary"
         sx={{ fontWeight: 600 }}

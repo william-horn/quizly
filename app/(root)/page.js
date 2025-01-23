@@ -16,7 +16,7 @@ export default function Home() {
             borderRadius={2}
             sx={{ bgcolor: "background.primaryInset" }}
           >
-            <Typography textAlign="center" fontWeight={600}>
+            <Typography textAlign="center">
               This app is not quite ready to use yet. In the meantime, please
               enjoy this stock image of a cute bear waving at you.
             </Typography>

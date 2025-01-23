@@ -1,5 +1,5 @@
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
-import { Typography, Box, Container, CssBaseline } from "@mui/material";
+import { Typography, Box, Container, CssBaseline, Alert } from "@mui/material";
 import { ThemeProvider } from "@mui/material";
 import AccountAccess from "./AccountAccess";
 import "../globals.css";
@@ -11,6 +11,14 @@ export const metadata = {
   title: "ReadyUp",
   description: "A learning tool for students",
 };
+
+import { Montserrat } from "next/font/google";
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "900"],
+  style: ["italic", "normal"],
+});
 
 const Header = () => {
   return (
@@ -32,31 +40,20 @@ const Header = () => {
         >
           <Image src="/images/logo.png" fill alt="Logo" />
         </Typography>
-
-        {/* <Typography variant="h1" pb={2} pt={[2, 0]}>
-          Ready
-          <Typography variant="span" color="secondary.main">
-            Up
-          </Typography>
-        </Typography> */}
       </Container>
 
-      <Box
-        bgcolor="background.alert"
-        border={1}
-        borderColor="background.alertBorder"
+      <Alert
+        severity="warning"
+        variant="filled"
+        sx={{ justifyContent: "center" }}
       >
-        <Container>
-          <Typography textAlign="center" fontSize="1.1" py={1}>
-            Welcome to{" "}
-            <Typography variant="span" fontWeight={700}>
-              ReadyUp
-            </Typography>
-            . This app is currently in very early stages of development. Thank
-            you for your patience as we sort things out.
-          </Typography>
-        </Container>
-      </Box>
+        Welcome to{" "}
+        <Typography variant="span" fontWeight={700}>
+          ReadyUp
+        </Typography>
+        . This app is currently in very early stages of development. Thank you
+        for your patience as we sort things out.
+      </Alert>
     </Box>
   );
 };
