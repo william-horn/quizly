@@ -9,7 +9,7 @@ const Footer = () => {
     >
       <Box py={2}>
         <Typography textAlign="center" fontWeight={900}>
-          2025
+          © 2025
         </Typography>
       </Box>
     </Box>

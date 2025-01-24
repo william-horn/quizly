@@ -1,8 +1,8 @@
 "use client";
 
 import { useRef, useState } from "react";
-import emptyFunc from "@/lib/util/defaultFunctions";
-import isClient from "@/lib/util/isClient";
+import emptyFunc from "@/util/defaultFunctions";
+import isClient from "@/util/isClient";
 
 export const useLocalStorageRequest = (key, value) => {
   if (!isClient()) return [emptyFunc, emptyFunc];

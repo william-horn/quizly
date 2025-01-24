@@ -14,6 +14,7 @@ import {
 import { useEffect, useState } from "react";
 import { useLocalStorageState } from "@/hooks/useLocalStorage";
 import { useTheme } from "@emotion/react";
+import requestSignIn from "@/util/signin";
 
 const AccountAccess = () => {
   return (
@@ -26,7 +27,11 @@ const AccountAccess = () => {
       mr={["auto", "initial"]}
       className="header-account-access"
     >
-      <Button variant="contained" sx={{ fontWeight: 600 }}>
+      <Button
+        variant="contained"
+        sx={{ fontWeight: 600 }}
+        onClick={requestSignIn}
+      >
         Login
       </Button>
       <Button variant="outlined" color="secondary" sx={{ fontWeight: 600 }}>
