@@ -14,7 +14,7 @@ import {
 import { useEffect, useState } from "react";
 import { useLocalStorageState } from "@/hooks/useLocalStorage";
 import { useTheme } from "@emotion/react";
-import requestSignIn from "@/util/signin";
+import { signIn } from "next-auth/react";
 
 const AccountAccess = () => {
   return (
@@ -30,7 +30,7 @@ const AccountAccess = () => {
       <Button
         variant="contained"
         sx={{ fontWeight: 600 }}
-        onClick={requestSignIn}
+        onClick={() => signIn("google")}
       >
         Login
       </Button>
