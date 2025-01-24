@@ -39,7 +39,11 @@ const AccountAccess = () => {
         variant="outlined"
         color="secondary"
         sx={{ fontWeight: 600 }}
-        onClick={testdb}
+        onClick={async () => {
+          const data = await testdb();
+
+          console.log("got response: ", data);
+        }}
       >
         Sign Up
       </Button>

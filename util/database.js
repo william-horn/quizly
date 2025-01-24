@@ -10,10 +10,12 @@ export const connectToDB = async () => {
     return;
   }
 
-  const MONGODB_URI =
-    process.env.NODE_ENV == "development"
-      ? "mongodb://localhost/readyup-dev"
-      : process.env.MONGODB_URI;
+  // const MONGODB_URI =
+  //   process.env.NODE_ENV == "development"
+  //     ? "mongodb://localhost/readyup-dev"
+  //     : process.env.MONGODB_URI;
+
+  const MONGODB_URI = process.env.MONGODB_URI;
 
   console.log("Connecting to MONGODB_URI: ", MONGODB_URI);
 
