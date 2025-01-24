@@ -7,10 +7,13 @@ import { decodeMongoData } from "./decodeMongoData";
 import User from "@/models/user";
 
 // Auth
-import { signIn } from "@/auth";
+import { signIn, auth } from "@/auth";
 
 export const doSignIn = async () => {
   console.log("signing in...");
+  const y = await auth();
+  console.log("session: ", y);
+
   const res = await signIn("google");
   console.log("signed in: ", res);
 };

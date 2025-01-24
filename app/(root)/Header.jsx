@@ -14,7 +14,6 @@ import {
 import { useEffect, useState } from "react";
 import { useLocalStorageState } from "@/hooks/useLocalStorage";
 import { useTheme } from "@emotion/react";
-// import { signIn } from "next-auth/react";
 import { testdb, doSignIn } from "@/util/dbTest";
 
 const AccountAccess = () => {
