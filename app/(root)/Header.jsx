@@ -14,8 +14,8 @@ import {
 import { useEffect, useState } from "react";
 import { useLocalStorageState } from "@/hooks/useLocalStorage";
 import { useTheme } from "@emotion/react";
-import { signIn } from "next-auth/react";
-import { testdb } from "@/util/dbTest";
+// import { signIn } from "next-auth/react";
+import { testdb, doSignIn } from "@/util/dbTest";
 
 const AccountAccess = () => {
   return (
@@ -28,11 +28,7 @@ const AccountAccess = () => {
       mr={["auto", "initial"]}
       className="header-account-access"
     >
-      <Button
-        variant="contained"
-        sx={{ fontWeight: 600 }}
-        onClick={async () => signIn("google")}
-      >
+      <Button variant="contained" sx={{ fontWeight: 600 }} onClick={doSignIn}>
         Login
       </Button>
       <Button

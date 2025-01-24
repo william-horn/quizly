@@ -1,12 +1,22 @@
 import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 
+const GOOGLE_CLIENT_ID = process.env.AUTH_GOOGLE_ID;
+const GOOGLE_CLIENT_SECRET = process.env.AUTH_GOOGLE_SECRET;
+
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [
-    // Google({
-    //   clientId: process.env.AUTH_GOOGLE_ID,
-    //   clientSecret: process.env.AUTH_GOOGLE_SECRET,
-    // }),
-    GoogleProvider,
+    GoogleProvider({
+      clientId: GOOGLE_CLIENT_ID,
+      clientSecret: GOOGLE_CLIENT_SECRET,
+    }),
   ],
+  callbacks: {
+    async signIn({ account, profile }) {
+      console.log("account: ", account);
+      console.log("profile: ", profile);
+
+      return true;
+    },
+  },
 });
