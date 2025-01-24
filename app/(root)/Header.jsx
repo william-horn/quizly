@@ -15,6 +15,7 @@ import { useEffect, useState } from "react";
 import { useLocalStorageState } from "@/hooks/useLocalStorage";
 import { useTheme } from "@emotion/react";
 import { signIn } from "next-auth/react";
+import { testdb } from "@/util/dbTest";
 
 const AccountAccess = () => {
   return (
@@ -30,14 +31,16 @@ const AccountAccess = () => {
       <Button
         variant="contained"
         sx={{ fontWeight: 600 }}
-        onClick={async () => {
-          console.log("attempting sign in...");
-          signIn("google");
-        }}
+        onClick={async () => signIn("google")}
       >
         Login
       </Button>
-      <Button variant="outlined" color="secondary" sx={{ fontWeight: 600 }}>
+      <Button
+        variant="outlined"
+        color="secondary"
+        sx={{ fontWeight: 600 }}
+        onClick={testdb}
+      >
         Sign Up
       </Button>
     </Box>
