@@ -15,9 +15,6 @@ import { useEffect, useState } from "react";
 import { useLocalStorageState } from "@/hooks/useLocalStorage";
 import { useTheme } from "@emotion/react";
 
-/*
-	Login/Signup Component
-*/
 const AccountAccess = () => {
   return (
     <Box
@@ -27,6 +24,7 @@ const AccountAccess = () => {
       height="fit-content"
       ml="auto"
       mr={["auto", "initial"]}
+      className="header-account-access"
     >
       <Button variant="contained" sx={{ fontWeight: 600 }}>
         Login
@@ -38,14 +36,16 @@ const AccountAccess = () => {
   );
 };
 
-const NavButton = ({ children }) => {
+const NavButton = ({ children, href }) => {
   return (
-    <Button
-      color="navButton"
-      sx={{ "&:hover": { textDecoration: "underline" } }}
-    >
-      {children}
-    </Button>
+    <Link href={href}>
+      <Button
+        color="navButton"
+        sx={{ "&:hover": { textDecoration: "underline" } }}
+      >
+        {children}
+      </Button>
+    </Link>
   );
 };
 
@@ -57,11 +57,12 @@ const Nav = () => {
       flexWrap="wrap"
       gap={2}
       justifyContent="center"
+      className="header-nav"
     >
-      <NavButton>Home</NavButton>
-      <NavButton>About</NavButton>
-      <NavButton>Data</NavButton>
-      <NavButton>Account</NavButton>
+      <NavButton href="/home">Home</NavButton>
+      <NavButton href="/about">About</NavButton>
+      <NavButton href="/explore">Explore</NavButton>
+      <NavButton href="/account">Account</NavButton>
     </Stack>
   );
 };
@@ -118,10 +119,10 @@ const Header = () => {
   const theme = useTheme();
 
   return (
+    // HEADER BACKGROUND
     <Box
       component="header"
       position="sticky"
-      pt={2}
       top={0}
       bgcolor="background.primary"
       zIndex={1000}
@@ -131,53 +132,84 @@ const Header = () => {
         filter: `drop-shadow(2px 4px 6px ${theme.palette.background.primaryInsetDark})`,
       }}
     >
-      {/* HEADER STACK */}
-      <Stack spacing={2} pb={2}>
-        {/* MAIN HEADER CONTENT (LOGO, NAV, ACCOUNT ACCESS) */}
-        <Container maxWidth={false}>
-          <Box
-            display="flex"
-            justifyContent="space-between"
-            alignItems="center"
-            flexWrap="wrap"
-            gap={2}
-          >
-            {/* LOGO */}
-            <Box
-              mx={["auto", "initial"]}
-              sx={{
-                "&:hover": {
-                  filter: "drop-shadow(2px 0px 6px black) grayscale(1);",
-                },
-                filter: "drop-shadow(2px 4px 6px black) grayscale(0);",
-                width: "fit-content",
-                transition: "all 0.2s",
-              }}
-            >
-              <Link href="/">
-                <Typography
-                  variant="h1"
-                  position="relative"
-                  width={150}
-                  height={47}
-                  sx={{
-                    pointerEvents: "none",
-                    userSelect: "none",
-                  }}
-                >
-                  <Image src="/images/logo.png" fill alt="Logo" />
-                </Typography>
-              </Link>
-            </Box>
-
-            <Nav />
-            <AccountAccess />
+      {/* HEADER STACK BACKGROUND */}
+      <Box position="relative" className="header-stack-background">
+        {/* <Box
+          width="100%"
+          height="100%"
+          position="absolute"
+          className="header-images"
+        >
+          <Box position="absolute" width={60} height={60}>
+            <Image
+              src="/images/gear.png"
+              fill
+              alt=""
+              style={{ objectFit: "cover", zIndex: -1, opacity: 0.4 }}
+            />
           </Box>
-        </Container>
-      </Stack>
+        </Box> */}
+
+        {/* <Box position="absolute" width="50vw" height="100%">
+          <Image
+            src="/images/header-bg-2.png"
+            fill
+            alt=""
+            style={{ objectFit: "cover", zIndex: -1, opacity: 0.4 }}
+          />
+        </Box> */}
+        {/* HEADER STACK */}
+        <Stack spacing={2} py={2} className="header-stack">
+          {/* MAIN HEADER CONTENT (LOGO, NAV, ACCOUNT ACCESS) */}
+          <Container maxWidth={false}>
+            <Box
+              display="flex"
+              justifyContent="space-between"
+              alignItems="center"
+              flexWrap="wrap"
+              gap={2}
+            >
+              {/* LOGO */}
+              <Box
+                className="header-logo"
+                mx={["auto", "initial"]}
+                sx={{
+                  "&:hover": {
+                    filter: "drop-shadow(2px 0px 6px black) grayscale(1);",
+                  },
+                  filter: "drop-shadow(2px 4px 6px black) grayscale(0);",
+                  width: "fit-content",
+                  transition: "all 0.2s",
+                }}
+              >
+                <Link href="/">
+                  <Typography
+                    variant="h1"
+                    position="relative"
+                    width={150}
+                    height={47}
+                    sx={{
+                      pointerEvents: "none",
+                      userSelect: "none",
+                    }}
+                  >
+                    <Image src="/images/logo.png" fill alt="Logo" />
+                  </Typography>
+                </Link>
+              </Box>
+
+              {/* NAV */}
+              <Nav />
+
+              {/* ACCOUNT ACCESS (LOGIN/SIGNUP) */}
+              <AccountAccess />
+            </Box>
+          </Container>
+        </Stack>
+      </Box>
 
       {/* PAGE ALERTS */}
-      <Stack>
+      <Stack className="page-alerts">
         <PageAlert severity="info" variant="filled">
           Welcome to{" "}
           <Typography variant="span" fontWeight={700}>
