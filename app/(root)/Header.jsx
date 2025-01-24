@@ -30,7 +30,10 @@ const AccountAccess = () => {
       <Button
         variant="contained"
         sx={{ fontWeight: 600 }}
-        onClick={() => signIn("google")}
+        onClick={async () => {
+          console.log("attempting sign in...");
+          signIn("google");
+        }}
       >
         Login
       </Button>
