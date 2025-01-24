@@ -1,6 +1,7 @@
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
 import { Box, CssBaseline } from "@mui/material";
 import { ThemeProvider } from "@mui/material";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "../globals.css";
 import Wireframe from "@/components/Wireframe";
 import theme from "@/themes/main";
@@ -39,6 +40,8 @@ export default function RootLayout({ children }) {
                 {children}
               </Box>
             </Box>
+
+            <SpeedInsights />
           </body>
         </ThemeProvider>
       </AppRouterCacheProvider>
