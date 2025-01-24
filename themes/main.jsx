@@ -12,6 +12,10 @@ const theme = createTheme({
       main: "#ed6c02",
       dark: "#d84315",
     },
+    navButton: {
+      main: "#ffffff",
+      selected: "#ed6c02",
+    },
     background: {
       primary: "#252b33",
 

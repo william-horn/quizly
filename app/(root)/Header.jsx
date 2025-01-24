@@ -1,7 +1,16 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { Box, Container, Typography, Alert, Button, Fade } from "@mui/material";
+import {
+  Box,
+  Container,
+  Typography,
+  Alert,
+  Button,
+  Fade,
+  Stack,
+  Divider,
+} from "@mui/material";
 import { useEffect, useState } from "react";
 import { useLocalStorageState } from "@/hooks/useLocalStorage";
 import { useTheme } from "@emotion/react";
@@ -15,7 +24,9 @@ const AccountAccess = () => {
       display="flex"
       gap={2}
       justifyContent="center"
-      sx={{ float: ["center", "right"] }}
+      height="fit-content"
+      ml="auto"
+      mr={["auto", "initial"]}
     >
       <Button variant="contained" sx={{ fontWeight: 600 }}>
         Login
@@ -24,6 +35,34 @@ const AccountAccess = () => {
         Sign Up
       </Button>
     </Box>
+  );
+};
+
+const NavButton = ({ children }) => {
+  return (
+    <Button
+      color="navButton"
+      sx={{ "&:hover": { textDecoration: "underline" } }}
+    >
+      {children}
+    </Button>
+  );
+};
+
+const Nav = () => {
+  return (
+    <Stack
+      direction="row"
+      sx={{ mx: ["auto", "initial"] }}
+      flexWrap="wrap"
+      gap={2}
+      justifyContent="center"
+    >
+      <NavButton>Home</NavButton>
+      <NavButton>About</NavButton>
+      <NavButton>Data</NavButton>
+      <NavButton>Account</NavButton>
+    </Stack>
   );
 };
 
@@ -81,8 +120,8 @@ const Header = () => {
   return (
     <Box
       component="header"
-      pt={2}
       position="sticky"
+      pt={2}
       top={0}
       bgcolor="background.primary"
       zIndex={1000}
@@ -92,48 +131,62 @@ const Header = () => {
         filter: `drop-shadow(2px 4px 6px ${theme.palette.background.primaryInsetDark})`,
       }}
     >
-      <Container maxWidth={false} sx={{ pb: 2 }}>
-        <AccountAccess />
-        <Box
-          mt={[2, 0]}
-          sx={{
-            "&:hover": {
-              filter: "drop-shadow(2px 0px 6px black) grayscale(1);",
-            },
-            filter: "drop-shadow(2px 4px 6px black) grayscale(0);",
-            width: "fit-content",
-            transition: "all 0.2s",
-            marginInline: ["auto", "initial"],
-          }}
-        >
-          <Link href="/">
-            <Typography
-              variant="h1"
-              position="relative"
-              width={150}
-              height={47}
+      {/* HEADER STACK */}
+      <Stack spacing={2} pb={2}>
+        {/* MAIN HEADER CONTENT (LOGO, NAV, ACCOUNT ACCESS) */}
+        <Container maxWidth={false}>
+          <Box
+            display="flex"
+            justifyContent="space-between"
+            alignItems="center"
+            flexWrap="wrap"
+            gap={2}
+          >
+            {/* LOGO */}
+            <Box
+              mx={["auto", "initial"]}
               sx={{
-                pointerEvents: "none",
-                userSelect: "none",
+                "&:hover": {
+                  filter: "drop-shadow(2px 0px 6px black) grayscale(1);",
+                },
+                filter: "drop-shadow(2px 4px 6px black) grayscale(0);",
+                width: "fit-content",
+                transition: "all 0.2s",
               }}
             >
-              <Image src="/images/logo.png" fill alt="Logo" priority />
-            </Typography>
-          </Link>
-        </Box>
-      </Container>
+              <Link href="/">
+                <Typography
+                  variant="h1"
+                  position="relative"
+                  width={150}
+                  height={47}
+                  sx={{
+                    pointerEvents: "none",
+                    userSelect: "none",
+                  }}
+                >
+                  <Image src="/images/logo.png" fill alt="Logo" />
+                </Typography>
+              </Link>
+            </Box>
 
-      <PageAlert severity="info" variant="filled">
-        Welcome to{" "}
-        <Typography variant="span" fontWeight={700}>
-          ReadyUp
-        </Typography>
-        . This app is currently in very early stages of development. Thank you
-        for your patience as we sort things out.
-      </PageAlert>
-      <PageAlert severity="error" variant="filled">
-        Failed to connect to database
-      </PageAlert>
+            <Nav />
+            <AccountAccess />
+          </Box>
+        </Container>
+      </Stack>
+
+      {/* PAGE ALERTS */}
+      <Stack>
+        <PageAlert severity="info" variant="filled">
+          Welcome to{" "}
+          <Typography variant="span" fontWeight={700}>
+            ReadyUp
+          </Typography>
+          . This app is currently in very early stages of development. Thank you
+          for your patience as we sort things out.
+        </PageAlert>
+      </Stack>
     </Box>
   );
 };
