@@ -37,6 +37,7 @@ export default function Home() {
               src="/images/cute-bear.webp"
               fill
               alt="Cute bear"
+              priority
               style={{ borderRadius: 8 }}
             />
           </Box>
