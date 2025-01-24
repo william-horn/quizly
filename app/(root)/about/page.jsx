@@ -1,7 +1,13 @@
-import { Box } from "@mui/material";
+import { Box, Typography, Container } from "@mui/material";
 
-const Home = () => {
-  return <Box></Box>;
+const About = () => {
+  return (
+    <Box height="100vh">
+      <Container>
+        <Typography>About (nothing here yet)</Typography>
+      </Container>
+    </Box>
+  );
 };
 
-export default Home;
+export default About;

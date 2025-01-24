@@ -6,6 +6,7 @@ import "../globals.css";
 import Wireframe from "@/components/Wireframe";
 import theme from "@/themes/main";
 import Header from "./Header";
+import Footer from "./Footer";
 import { Montserrat } from "next/font/google";
 
 export const metadata = {
@@ -39,8 +40,9 @@ export default function RootLayout({ children }) {
               <Box component="main" mt={5}>
                 {children}
               </Box>
-            </Box>
 
+              <Footer />
+            </Box>
             <SpeedInsights />
           </body>
         </ThemeProvider>

@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <Box minHeight="100vh">
       <Container maxWidth="sm">
-        <Stack spacing={2} display="flex" alignItems="center">
+        <Stack spacing={5} display="flex" alignItems="center">
           <Stack
             border={1}
             borderColor="background.primaryInsetBorderLight"
