@@ -7,6 +7,8 @@ import { Montserrat } from "next/font/google";
 import theme from "@/themes/main";
 import Image from "next/image";
 import "../globals.css";
+import Header from "./Header";
+import Footer from "@/components/Footer";
 
 export const metadata = {
   title: "ReadyUp Login",
@@ -51,7 +53,9 @@ const AccountAccessLayout = ({ children }) => {
                   }}
                 />
               </Box> */}
+              <Header />
               <Box component="main">{children}</Box>
+              <Footer />
             </Box>
             <SpeedInsights />
           </body>

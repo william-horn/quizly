@@ -1,5 +1,6 @@
 "use client";
-import { Box, Stack, TextField, Button } from "@mui/material";
+import { Box, Stack, TextField, Button, Typography } from "@mui/material";
+import newStyled from "@emotion/styled";
 
 const LoginForm = () => {
   const handleSubmit = () => {
@@ -12,23 +13,35 @@ const LoginForm = () => {
         <TextField
           variant="outlined"
           fullWidth
-          placeholder="Username"
-          helperText="Enter your username above"
+          onKeyDown={(e) => e.key === "Enter" && e.preventDefault()}
+          placeholder="Email"
+          helperText="Enter your registered email above"
         />
         <TextField
           variant="outlined"
           fullWidth
           placeholder="Password"
-          helperText="Enter your username above"
+          helperText="Enter your password above"
         />
-        <Button
-          type="submit"
-          variant="contained"
-          sx={{ width: "fit-content", mx: "auto" }}
-        >
+      </Stack>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          mt: [3, 5],
+          gap: 2,
+          alignItems: "center",
+          flexWrap: "wrap",
+        }}
+      >
+        <Button type="submit" variant="contained">
           Login
         </Button>
-      </Stack>
+        <Typography>Or</Typography>
+        <Button variant="outlined" color="secondary" sx={{ fontWeight: 600 }}>
+          Sign Up
+        </Button>
+      </Box>
     </Box>
   );
 };

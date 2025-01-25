@@ -6,7 +6,7 @@ import "../globals.css";
 import Wireframe from "@/components/Wireframe";
 import theme from "@/themes/main";
 import Header from "./Header";
-import Footer from "./Footer";
+import Footer from "../../components/Footer";
 import { Montserrat } from "next/font/google";
 
 export const metadata = {

@@ -20,8 +20,14 @@ const CenterContent = ({ children }) => {
       sx={{
         p: 3,
         width: [300, 450],
-        bgcolor: "#16181a",
+        // bgcolor: "#16181a",
+        bgcolor: "backgroundInset.first",
         borderRadius: 2,
+        height: "fit-content",
+        mt: "10vh",
+        borderColor: "borderInset.first",
+        borderWidth: 1,
+        borderStyle: "solid",
       }}
     >
       <Stack spacing={[3, 5]} direction="column">

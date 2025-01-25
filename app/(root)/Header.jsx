@@ -14,6 +14,7 @@ import {
 import { useEffect, useState } from "react";
 import { useLocalStorageState } from "@/hooks/useLocalStorage";
 import { useTheme } from "@emotion/react";
+import ReadyUpLogo from "@/components/Images/ReadyUpLogo";
 
 const AccountAccess = () => {
   return (
@@ -28,7 +29,7 @@ const AccountAccess = () => {
     >
       <Link href="/login">
         <Button variant="contained" sx={{ fontWeight: 600 }}>
-          Login
+          Sign In
         </Button>
       </Link>
 
@@ -70,35 +71,45 @@ const Nav = () => {
   );
 };
 
+/*
+	TODO:
+
+	Figure out a way to make this component closable, while
+	remembering that it is closed. The memory should probably
+	be handled by saving some session data about closed page 
+	alerts, so that the server can correctly render the alert
+	before it is sent to the client. This is necessary so the
+	client does not need to be hydrated for page alerts.
+*/
 const PageAlert = ({ children, severity, variant }) => {
   const fadeOutTime = 0.5 * 1000; // Time it takes to fade out the alert when clicked (disabled)
   const hideDuration = 60 * 1000; // Time until the alert appears again after close
 
   // Last timestamp of user hiding the alert
-  const [getCloseTime, setCloseTime] = useLocalStorageState(
-    "alertCloseTime",
-    0
-  );
+  // const [getCloseTime, setCloseTime] = useLocalStorageState(
+  //   "alertCloseTime",
+  //   0
+  // );
 
   // Determines whether the alert is rendered or not rendered
-  const [rendered, setRendered] = useState(false);
+  const [rendered, setRendered] = useState(true);
 
   // Determines whether the alert is shown or hidden
-  useEffect(() => {
-    setRendered(Date.now() - getCloseTime() > hideDuration);
-  }, [getCloseTime()]);
+  // useEffect(() => {
+  //   setRendered(Date.now() - getCloseTime() > hideDuration);
+  // }, [getCloseTime()]);
 
   const ConditionallyRenderAlert = () => {
     return rendered ? (
       <Alert
-        onClick={() => setCloseTime(Date.now())}
+        // onClick={() => setCloseTime(Date.now())}
         severity={severity}
         variant={variant}
         sx={{
           justifyContent: "center",
           display: "flex",
           alignItems: "center",
-          cursor: "pointer",
+          // cursor: "pointer",
         }}
       >
         {children}
@@ -173,33 +184,7 @@ const Header = () => {
               gap={2}
             >
               {/* LOGO */}
-              <Box
-                className="header-logo"
-                mx={["auto", "initial"]}
-                sx={{
-                  "&:hover": {
-                    filter: "drop-shadow(2px 0px 6px black) grayscale(1);",
-                  },
-                  filter: "drop-shadow(2px 4px 6px black) grayscale(0);",
-                  width: "fit-content",
-                  transition: "all 0.2s",
-                }}
-              >
-                <Link href="/">
-                  <Typography
-                    variant="h1"
-                    position="relative"
-                    width={150}
-                    height={47}
-                    sx={{
-                      pointerEvents: "none",
-                      userSelect: "none",
-                    }}
-                  >
-                    <Image src="/images/logo.png" fill alt="Logo" />
-                  </Typography>
-                </Link>
-              </Box>
+              <ReadyUpLogo />
 
               {/* NAV */}
               <Nav />

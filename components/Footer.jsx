@@ -5,7 +5,7 @@ const Footer = () => {
     <Box component="footer" borderTop={1} borderColor="borderInset.first">
       <Box py={2}>
         <Typography textAlign="center" fontWeight={900}>
-          © 2025
+          ReadyUp © 2025
         </Typography>
       </Box>
     </Box>

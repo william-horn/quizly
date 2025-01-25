@@ -56,7 +56,7 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           ".MuiInputBase-root": {
-            backgroundColor: "#16181a", // #16181a
+            // backgroundColor: "#16181a", // #16181a
             border: "1px solid #606265",
           },
           // ".MuiOutlinedInput-notchedOutline": {

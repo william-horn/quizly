@@ -5,12 +5,9 @@ import LoginForm from "./LoginForm";
 
 const LoginPage = () => {
   return (
-    <Box
-      height="100vh"
-      sx={{ justifyContent: "center", alignItems: "center", display: "flex" }}
-    >
+    <Box height="100vh" sx={{ justifyContent: "center", display: "flex" }}>
       <CenterContent>
-        <CenterContent.Title>Login</CenterContent.Title>
+        <CenterContent.Title>Sign In</CenterContent.Title>
         <CenterContent.Body>
           <LoginForm />
         </CenterContent.Body>
