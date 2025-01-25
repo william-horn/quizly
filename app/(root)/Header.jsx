@@ -14,7 +14,6 @@ import {
 import { useEffect, useState } from "react";
 import { useLocalStorageState } from "@/hooks/useLocalStorage";
 import { useTheme } from "@emotion/react";
-import { testdb, doSignIn } from "@/util/dbTest";
 
 const AccountAccess = () => {
   return (
@@ -27,19 +26,13 @@ const AccountAccess = () => {
       mr={["auto", "initial"]}
       className="header-account-access"
     >
-      <Button variant="contained" sx={{ fontWeight: 600 }} onClick={doSignIn}>
-        Login
-      </Button>
-      <Button
-        variant="outlined"
-        color="secondary"
-        sx={{ fontWeight: 600 }}
-        onClick={async () => {
-          const data = await testdb();
+      <Link href="/login">
+        <Button variant="contained" sx={{ fontWeight: 600 }}>
+          Login
+        </Button>
+      </Link>
 
-          console.log("got response: ", data);
-        }}
-      >
+      <Button variant="outlined" color="secondary" sx={{ fontWeight: 600 }}>
         Sign Up
       </Button>
     </Box>
@@ -134,10 +127,10 @@ const Header = () => {
       component="header"
       position="sticky"
       top={0}
-      bgcolor="background.primary"
+      bgcolor="background.first"
       zIndex={1000}
       borderBottom={1}
-      borderColor="background.primaryInsetBorderLight"
+      borderColor="borderInset.first"
       sx={{
         filter: `drop-shadow(2px 4px 6px ${theme.palette.background.primaryInsetDark})`,
       }}

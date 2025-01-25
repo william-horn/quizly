@@ -8,14 +8,14 @@ export default function Home() {
         <Stack spacing={5} display="flex" alignItems="center">
           <Stack
             border={1}
-            borderColor="background.primaryInsetBorderLight"
+            borderColor="borderInset.first"
             spacing={2}
             display="flex"
             alignItems="center"
             p={2}
             borderRadius={2}
             sx={{
-              bgcolor: "background.primaryInsetLight",
+              bgcolor: "backgroundInset.first",
             }}
           >
             <Typography textAlign="center">

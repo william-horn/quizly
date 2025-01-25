@@ -1,6 +1,6 @@
 "use server";
 // MongoDB imports
-import { connectToDB } from "./database";
+import { connectToDB } from "./mongoConnect";
 import { decodeMongoData } from "./decodeMongoData";
 
 // Models

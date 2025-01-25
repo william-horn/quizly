@@ -26,15 +26,15 @@ export default function RootLayout({ children }) {
       <Wireframe />
       <AppRouterCacheProvider>
         <ThemeProvider theme={theme}>
+          <CssBaseline />
           <body className={`antialiased`}>
             <Box
               width="100vw"
               height="100vh"
               position="fixed"
-              bgcolor="background.primary"
+              bgcolor="background.first"
               overflow="auto"
             >
-              <CssBaseline />
               <Header />
 
               <Box component="main" mt={5}>
